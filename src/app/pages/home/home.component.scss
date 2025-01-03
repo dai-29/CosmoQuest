@@ -1,0 +1,68 @@
+@import "../../../assets/variables.scss";
+@import "animate.css";
+
+.home {
+  @include pageStyle;
+  padding: 2.5rem 5%;
+  row-gap: 6.25rem;
+  &__info {
+    @include flex(column, center, center);
+    row-gap: 1.5625rem;
+    &__description {
+      max-width: 27.75rem;
+    }
+    span {
+      font-family: $bellefair;
+      font-size: 5rem;
+      color: $white;
+      text-transform: uppercase;
+    }
+  }
+  &__explore {
+    @include flex(row, center, center);
+    font-family: $bellefair;
+    font-size: 1.25rem;
+    width: clamp(9.375rem, 30vw, 17.125rem);
+    height: clamp(9.375rem, 30vw, 17.125rem);
+    background: $white;
+    text-transform: uppercase;
+    border-radius: 50%;
+    letter-spacing: 0.0781rem;
+    transition: 0.25s;
+  }
+}
+
+@media (min-width: $tablet) {
+  .home {
+    padding: 6.25rem 5%;
+    row-gap: 12.5rem;
+    &__info {
+      span {
+        font-size: 9.375rem;
+      }
+    }
+    &__explore {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  .home {
+    @include flex(row, space-between, flex-end);
+    text-align: start;
+    padding: 12.5rem 0% 6.25rem 0%;
+    width: 100%;
+    &__info {
+      align-items: flex-start;
+      padding-inline: 10%;
+    }
+    &__explore {
+      margin-right: 10%;
+      &:hover {
+        transition: 0.25s;
+        animation: pulse 1s infinite;
+      }
+    }
+  }
+}

@@ -1,0 +1,139 @@
+@import "../../../assets/variables.scss";
+
+header {
+  @include flex(row, space-between, flex-start);
+  padding-top: 1.5rem;
+  max-width: 90rem;
+  img {
+    width: 2.5rem;
+    flex-shrink: 0;
+    margin-left: 5%;
+  }
+  button {
+    position: absolute;
+    right: 5%;
+    z-index: 8;
+    img {
+      width: 1.5rem;
+      flex-shrink: 0;
+    }
+  }
+  nav {
+    ul {
+      @include flex(column, flex-start, flex-start);
+      width: 0;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(2.5625rem);
+      position: absolute;
+      overflow: hidden;
+      padding-top: 6.25rem;
+      height: 100vh;
+      gap: 2.1875rem;
+      right: 0;
+      top: 0;
+      transition: 0.5s ease-in-out;
+      &.active {
+        width: clamp(12.5rem, 70vw, 51.875rem);
+        padding-left: 2rem;
+        z-index: 7;
+        gap: 2.1875rem;
+        visibility: visible;
+      }
+      li {
+        color: #fff;
+        font-size: 1rem;
+        font-family: Barlow Condensed;
+        letter-spacing: 0.1688rem;
+        list-style: none;
+        text-transform: uppercase;
+        a {
+          text-decoration: none;
+          color: #fff;
+          white-space: nowrap;
+          span {
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet) {
+  header {
+    align-items: center;
+    padding-top: 0;
+    img {
+      width: 3rem;
+    }
+    button {
+      display: none;
+    }
+    nav {
+      ul {
+        @include flex(row, space-evenly, center);
+        width: 60vw;
+        height: auto;
+        padding-top: 0;
+        position: relative;
+        gap: 0;
+        transition: none;
+        &.active {
+          @include flex(row, space-evenly, center);
+          width: 60vw;
+          text-align: center;
+          height: auto;
+          padding: 0;
+          position: relative;
+          gap: 0;
+        }
+        li {
+          padding-block: 3rem;
+          a {
+            padding-block: 45px;
+            &.active {
+              box-shadow: 0 0.1875rem 0 0 $white;
+            }
+            &:hover {
+              &:not(.active) {
+                box-shadow: 0 0.1875rem 0 0 $grayish;
+              }
+            }
+            span {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  header {
+    padding-top: 2.5rem;
+    margin-inline: auto;
+    &::before {
+      content: "";
+      opacity: 0.2515;
+      background: $white;
+      width: clamp(100px, 35vw, 473px);
+      height: 1px;
+      position: absolute;
+      transform: translateX(170px);
+      // z-index: 1;
+    }
+    nav {
+      ul {
+        max-width: 51.875rem;
+        li {
+          a {
+            span {
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,133 @@
+@import "../../../assets/variables.scss";
+
+.destination {
+  @include pageStyle;
+  padding: 2.5rem 5%;
+  row-gap: 1.5625rem;
+  &__info {
+    @include flex(column, center, center);
+    row-gap: 1.875rem;
+    &__image {
+      @include animation;
+      width: clamp(10.625rem, 30vw, 27.8125rem);
+    }
+    &__main {
+      &__destinations {
+        display: inline-flex;
+        button {
+          color: $grayish;
+          font-family: $barlowCondensed;
+          font-size: 0.875rem;
+          letter-spacing: 0.1475rem;
+          padding-bottom: 0.625rem;
+          margin-inline: 0.625rem;
+          &.active {
+            color: white;
+            box-shadow: 0 0.1875rem 0 0 white;
+          }
+          &:hover {
+            &:not(&.active) {
+              box-shadow: 0 0.1875rem 0 0 $grayish;
+            }
+          }
+        }
+      }
+      &__name {
+        @include animation;
+        font-family: $bellefair;
+        color: $white;
+        font-size: 3.5rem;
+        text-transform: uppercase;
+        margin-top: 1.25rem;
+      }
+      &__description {
+        @include animation;
+        border-bottom: 0.0625rem solid #383b4b;
+        padding-bottom: 1.875rem;
+      }
+      &__data {
+        @include animation;
+        @include flex(column, center, center);
+        row-gap: 1.5625rem;
+        margin-top: 1.875rem;
+        article {
+          text-transform: uppercase;
+          span {
+            color: #d0d6f9;
+            font-family: $barlowCondensed;
+            font-size: 0.875rem;
+            letter-spacing: 0.1475rem;
+          }
+          h3 {
+            color: $white;
+            font-size: 1.75rem;
+            font-family: $bellefair;
+            margin-top: 0.625rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet) {
+  .destination {
+    row-gap: 3.75rem;
+    &__heading {
+      align-self: flex-start;
+    }
+    &__info {
+      row-gap: 3.125rem;
+      &__main {
+        &__destinations {
+          button {
+            font-size: 1rem;
+            letter-spacing: 0.1688rem;
+          }
+        }
+        &__name {
+          font-size: 5rem;
+          margin-top: 2.5rem;
+        }
+        &__description {
+          padding-bottom: 3.75rem;
+        }
+        &__data {
+          @include flex(row, space-evenly, center);
+          margin-top: 2.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  .destination {
+    padding: 4.375rem 0 4.375rem 0;
+    &__heading {
+      margin-left: 10%;
+    }
+    &__info {
+      @include flex(row, space-between, flex-start);
+      text-align: start;
+      width: 100%;
+      margin-top: 3.75rem;
+      padding-inline: 10%;
+      &__main {
+        text-align: start;
+        &__destinations {
+          grid-gap: 2.5rem;
+          margin: 0;
+        }
+        &__name {
+          font-size: 6.25rem;
+        }
+        &__data {
+          @include flex(row, flex-start, flex-start);
+          grid-gap: 5rem;
+          text-align: start;
+        }
+      }
+    }
+  }
+}
